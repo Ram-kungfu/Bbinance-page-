@@ -1,1 +1,100 @@
 
+
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जॉइनिंग निर्देश - राम भैया बॉट</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
+        .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 800px; margin: auto; }
+        h1 { color: #d35400; text-align: center; }
+        h2 { color: #2c3e50; border-bottom: 2px solid #d35400; padding-bottom: 5px; }
+        .step { margin-bottom: 25px; background: #fff; padding: 15px; border-radius: 8px; border-left: 5px solid #27ae60; }
+        .step-number { font-weight: bold; color: #27ae60; font-size: 1.2em; }
+        .important-note { background: #e8f8f5; padding: 10px; border-left: 5px solid #1abc9c; margin: 10px 0; }
+        .warning { background: #fff3cd; padding: 15px; border-left: 5px solid #ffeeba; margin-top: 20px; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+        .highlight { color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 बॉट जॉइन करने की पूरी प्रक्रिया</h1>
+
+        <div class="step">
+            <h2>स्टेप 1: बाइनेंस (Binance) में API सेट करने का पूरा तरीका</h2>
+            <p>*****API Management में जाकर एक नई API Key बनाएँ। Enable Reading और Enable Spot Trading वाले बॉक्स पर टिक लगाएँ। सुरक्षा के लिए: 'Enable Withdrawals' को हमेशा अनटिक (बंद) रखें ताकि आपके पैसे सुरक्षित रहें। IP Restriction: 'Restrict Access to Trusted IPs' को चुनें और यह IP कॉपी करके पेस्ट करें: 2001:16a4:9:bc62:f23b:a3e:e54c:94a9*****</p>
+            
+            <p>👉 1. <strong>बाइनेंस ऐप खोलें:</strong> सबसे पहले अपने मोबाइल में Binance App को ओपन करें।</p>
+            <p>👉 2. <strong>'More' पर जाएँ:</strong> होम स्क्रीन पर ही आपको दाईं तरफ 'More' (चार छोटे डॉट्स वाला आइकन) दिखेगा, उस पर क्लिक करें।</p>
+            <p>👉 3. <strong>API Management ढूँढें:</strong> नीचे की तरफ स्क्रॉल करें (या सर्च बार में लिखें) और 'API Management' वाले विकल्प को चुनें।</p>
+            <p>👉 4. <strong>नई API बनाएँ:</strong> यहाँ 'Create API' बटन पर क्लिक करें। नाम लिखें (अपना जो नाम रखना हो जैसे आपका नाम Bot)। अपनी पहचान (जैसे ईमेल या फ़ोन कोड) वेरिफाई करने के बाद आपको API Key और Secret Key मिल जाएगी।</p>
+
+            <div class="important-note">
+                <strong>खास निर्देश:</strong> "API Key और Secret Key को तुरंत कॉपी करके कहीं सुरक्षित रख लें, (edit पर save करने से पहले) क्योंकि Secret Key सिर्फ एक ही बार दिखती है। उसके बाद वह छिप जाएगी।" इसी को आप ज्वाइन करते समय दोनों सही से डालना पड़ेगा।
+            </div>
+
+            <p>👉 5. <strong>सेटिंग्स बदलें (Edit):</strong> बनी हुई API के नीचे 'Edit' बटन पर क्लिक करें ताकि आप परमिशन सेट कर सकें।</p>
+            <p>👉 6. <strong>जरूरी परमिशन टिक करें:</strong><br>
+                - <strong>Enable Reading:</strong> इसे टिक रहने दें (यह पहले से टिक होता है)।<br>
+                - <strong>Enable Spot & Margin Trading:</strong> इस बॉक्स पर टिक लगाएँ।<br>
+                <span class="highlight">⚠️ सावधानी:</span> 'Enable Withdrawals' वाले बॉक्स को खाली (Uncheck) छोड़ दें। इसे कभी टिक न करें!
+            </p>
+
+            <p>👉 7. <strong>IP सुरक्षा सेट करें (सबसे जरूरी):</strong> सबसे नीचे 'Restrict access to trusted IPs only' को चुनें। दिए गए बॉक्स में यह IP एड्रेस कॉपी करके पेस्ट करें: <code>2001:16a4:9:bc62:f23b:a3e:e54c:94a9</code>। (यह trusted IP हमारे मेन पेज पर लिखी है उसे कॉपी करें और इस बॉक्स मे डाल दें. इसके बिना बॉट काम नहीं करेगा) पेस्ट करने के बाद 'Confirm' बटन दबाएँ।</p>
+
+            <p>👉 8. <strong>सेव करें:</strong> अब ऊपर जाकर 'Save' बटन दबाएँ। आपसे बाइनेंस का ऑथेंटिकेटर कोड मांगा जाएगा।</p>
+            
+            <div class="important-note">
+                <strong>ऑथेंटिकेटर गाइड:</strong> (authenticator लोड करके बना लीजियेगा इसके लिए आपको एक बार कोड दिखेगा और उसके निचे एक api key दिखेगा इस key को कॉपी कर लीजियेगा authenticator खोलियेगा उसमें + के निशान पर क्लिक कीजिए Enter a setup key पर क्लिक करना है code name मे जो Binance में नाम डाला है बॉट का इसमें वही नाम डाल दीजिये. Your key में आपने जो अभी बार code के नीचे वाला api key कॉपी किया है उसको इसमें डाल दीजिये बस add पर क्लिक कर दीजिये. अब आपको authenticatar में 6 नंबर दिखने लगेगा उस नंबर कोई कॉपी करके सिक्योरिटी वेरीफाई करना पड़ेगा। और e mail वेरीफिकेशन भी करना पड़ेगा उसमें भी आप जब वेरीफाई करेंगे तो e mail पर 6 नम्बर का कोड जायेगा उसको डालकर वेरीफाई कर लीजिएगा डबल सिक्योरिटी हो जाएगी। इससे कोई भी आपका Binance से कुछ भी चुरा नहीं पायेगा ना कोई हैक कर पायेगा) । उसे भरते ही आपकी API सुरक्षित तरीके से तैयार हो जाएगी।
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>स्टेप 2: बॉट गैस फीस रिचार्ज करना</h2>
+            <p>बॉट को चालू रखने के लिए आपको सर्विस फीस (गैस बैलेंस) जमा करनी होगी: (जोइनिंग करने की date से 7 दिन के लिए फीस फ्री है )</p>
+            <p>वेबसाइट पर दिए गए USDT-TRC20 एड्रेस को कॉपी करें: <code>TPCSLAVCopsLxx6uKFfPuh57v24cZuzV8b</code></p>
+            <p>(यह एड्रेस आपको हमारे मेन पेज पर लिखा है "बॉट रिचार्ज" उसको कॉपी कर लें।)</p>
+            <p>बाइनेंस से केवल <strong>TRC20 (Tron)</strong> नेटवर्क चुनकर ही पैसे भेजें।</p>
+            <p>रिचार्ज करने के बाद "बॉट रिचार्ज डिटेल भेजें" बटन पर क्लिक करके स्क्रीनशॉट भेजें।</p>
+        </div>
+
+        <div class="step">
+            <h2>स्टेप 3: बाइनेंस वॉलेट में बैलेंस रखना</h2>
+            <p>सुनिश्चित करें कि आपके बाइनेंस के Spot Wallet में कम से कम <strong>$15 से $ 20 USDT</strong> मौजूद हों। बॉट इसी बैलेंस का इस्तेमाल करके आपके लिए ट्रेडिंग शुरू करेगा।</p>
+        </div>
+
+        <div class="step">
+            <h2>स्टेप 4: जॉइनिंग फॉर्म भरना</h2>
+            <p>अब मुख्य पेज पर वापस आएँ और ये जानकारी भरें:<br>
+            - <strong>अपना पूरा नाम:</strong> जो आपके बैंक या बाइनेंस रिकॉर्ड में हो.<br>
+            - <strong>Binance API Key:</strong> जो आपने स्टेप 1 में बनाई थी.<br>
+            - <strong>Binance Secret Key:</strong> अपनी गुप्त चाबी यहाँ डालें।(यहाँ पर आपकी secret key दिखाई नहीं देगी सिर्फ. डॉट डॉट........... करके लिखकर आएगा )<br>
+            - <strong>Referral Name:</strong> यदि आपके पास है, तो भरें (वैकल्पिक).</p>
+        </div>
+
+        <div class="step">
+            <h2>स्टेप 5: बॉट एक्टिवेशन</h2>
+            <p>सारी जानकारी भरने के बाद नीचे दिए गए हरे बटन (<strong>बॉट एक्टिव करें</strong>) को दबाएँ।</p>
+        </div>
+
+        <div class="step">
+            <h2>स्टेप 7: Referral Link</h2>
+            <p>यदि आप किसी को रेफेर करना चाहते हैँ तो इस नीचे referral link पर इसी समय क्लिक करें। लिंक मिल जायेगा उसको कॉपी करके किसी को भेज सकते हैँ.. (फायदा 👉 आपके इस लिंक के माध्यम से कोई ज्वाइन करता है तो आपको उसके प्रॉफिट में से 2% आपको हमेशा मिलता रहेगा। बाकी आपकी मर्जी यह ऑप्शनल है)।</p>
+            <p>जैसे ही आपका गैस बैलेंस एडमिन द्वारा अप्रूव होगा, आपका बॉट खुद-ब-खुद काम करना शुरू कर देगा!</p>
+        </div>
+
+        <div class="warning">
+            <p><strong>जरूरी सलाह:</strong> अगर आप TRC20 की जगह किसी और नेटवर्क (जैसे BEP20 या अन्य नेटवर्क) पर पैसे भेजेंगे, तो वे वापस नहीं मिलेंगे। और न ही आपकी गैस फीस जा पायेगी। ना ही आपका बॉट एक्टिव होगा।। इसलिए नेटवर्क ध्यान से चुनें! इससे बॉट की कोई जिम्मेदारी नहीं होगी धन्यवाद!</p>
+        </div>
+        
+        <p style="text-align: center; margin-top: 30px;">
+            <a href="index.html" style="background: #27ae60; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">मुख्य पेज पर वापस जाएँ</a>
+        </p>
+    </div>
+</body>
+</html>
+
