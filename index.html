@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>राम  भाई  बाइनेंस बॉट - सुपर रजिस्ट्रेशन</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #f0f2f5; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 420px; text-align: center; }
+        h2 { color: #1a73e8; margin-bottom: 5px; }
+        
+        .balance-box { background: #e7f3ff; color: #1a73e8; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-weight: bold; border: 1px solid #1a73e8; }
+        .pay-section { background: linear-gradient(135deg, #ff9800, #f57c00); color: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; cursor: pointer; border: 2px solid #e67e22; font-weight: bold; }
+        .pay-section:hover { background: #e67e22; }
+
+        .ip-box { background: #fff5f5; padding: 12px; border-radius: 8px; font-weight: bold; color: #d93025; margin-bottom: 15px; font-size: 13px; cursor: pointer; border: 1px dashed #d93025; position: relative; }
+        
+        .instruction-list { text-align: left; background: #fff9db; padding: 15px; border-radius: 8px; font-size: 13px; margin-bottom: 15px; border-left: 4px solid #fab005; }
+        .instruction-list b { color: #e67e22; }
+        
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
+        
+        .btn-green { width: 100%; padding: 14px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; margin-top: 5px; }
+        .btn-green:hover { background: #218838; }
+        .btn-purple { width: 100%; padding: 10px; background: #6f42c1; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold; margin-top: 10px; }
+        
+        #msg { margin-top: 15px; font-weight: bold; font-size: 14px; }
+        .footer { margin-top: 20px; font-size: 11px; color: #666; font-weight: bold; letter-spacing: 0.5px; }
+        .ref-info { font-size: 13px; color: #28a745; margin-bottom: 8px; font-weight: bold; }
+        
+        /* Status Section Styling */
+        .status-container { max-width: 400px; width: 100%; margin: 20px auto; padding: 20px; border: 2px dashed #f39c12; border-radius: 10px; background: #fffcf0; box-sizing: border-box; }
+        .status-header { text-align: center; color: #d35400; margin-top: 0; }
+        .status-btn { width: 100%; padding: 10px; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .status-display { margin-top: 20px; display: none; padding: 15px; border-radius: 5px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>राम भैया बॉट जॉइन 🚀</h2>
+        <p style="font-size: 13px; color: #555;">सुरक्षित ऑटो-ट्रेडिंग सिस्टम</p>
+
+        <div style="text-align: center; margin: 15px;">
+            <a href="join.html" style="display: inline-block; background-color: #3498db; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                📖 जॉइन कैसे करें? (पूरा निर्देश यहाँ देखें)
+            </a>
+        </div>
+
+        <div id="balanceDisplay" class="balance-box" style="display:none;">
+            💰 आपका बैलेंस: $<span id="userBalance">0.00</span>
+        </div>
+        
+        <div class="pay-section" onclick="copyWallet()" title="क्लिक करके एड्रेस कॉपी करें">
+            💳 बॉट रिचार्ज (USDT-TRC20):<br>
+            <span id="walletAddr" style="font-size: 11px; opacity: 0.9;">TPCSLAVCopsLxx6uKFfPuh57v24cZuzV8b</span>
+        </div>
+        
+        <div style="text-align: center; margin: 10px;">
+            <a id="payButtonLink" href="https://script.google.com/macros/s/AKfycbxDBLtnnQLGkjx6AEODiMt9kKIZySWQ_Lu_AQM8LnxPky7HZT880oiiG1Ve5NP2u87e/exec"
+               target="_blank" 
+               style="background-color: #ff9800; color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 20px; display: inline-block; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);">
+                ⛽ बॉट रिचार्ज डिटेल भेजें
+            </a>
+        </div>
+
+        <div class="ip-box" onclick="copyIP()" title="Binance में पेस्ट करने के लिए क्लिक करें">
+            📢 Trusted IP (इसे कॉपी करें):<br>
+            <span id="ipText" style="font-family: monospace;">2001:16a4:9:bc62:f23b:a3e:e54c:94a9</span>
+        </div>
+
+        <div class="instruction-list">
+            <b>⚠️ Binance API में ये टिक करें:</b>
+            <ul style="margin: 5px 0; padding-left: 20px;">
+                <li>✅ Enable Reading & Spot Trading</li>
+                <li>❌ Enable Withdrawals (इसे बंद रखें)</li>
+                <li>✅ Restrict Access to Trusted IPs</li>
+            </ul>
+        </div>
+
+        <div id="refStatus" class="ref-info"></div>
+
+        <input type="text" id="u_name" placeholder="अपना पूरा नाम लिखें" oninput="checkBalance()">
+        <input type="text" id="u_key" placeholder="Binance API Key">
+        <input type="password" id="u_secret" placeholder="Binance Secret Key">
+        <input type="text" id="u_ref" placeholder="Referral Code (Optional)" readonly style="background: #f4f4f4;">
+        
+        <button class="btn-green" onclick="saveToFirebase()">बॉट एक्टिवेट करें</button>
+        <button class="btn-purple" onclick="generateRefLink()">रेफरल लिंक बनाकर शेयर करें 🔗</button>
+        
+        <p id="msg"></p>
+        
+        <div class="footer">
+            राम भैया कुंग-फू हंटर - सुरक्षा और मुनाफे का संगम!
+        </div>
+    </div>
+
+    <div class="status-container">
+        <h3 class="status-header">📊 अपना बॉट और प्रॉफिट स्टेटस चेक करें</h3>
+        <input type="text" id="checkName" placeholder="अपना पूरा नाम लिखें..." style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;">
+        <button class="status-btn" onclick="checkMyStatus()">स्टेटस देखें 🔍</button>
+
+        <div id="statusResult" class="status-display">
+            <p style="margin: 5px 0;"><strong>स्थिति:</strong> <span id="resStatus">--</span></p>
+            <p style="margin: 5px 0;"><strong>गैस फीस (Gas Balance):</strong> <span id="resGas" style="color: green; font-weight: bold;">--</span></p>
+            <p style="margin: 5px 0;"><strong>आज का मुनाफा (Today):</strong> <span id="resTodayProfit" style="color: #e67e22; font-weight: bold;">$0.00</span></p>
+            <p style="margin: 5px 0;"><strong>लाइव प्रॉफिट (Total Profit):</strong> <span id="resProfit" style="color: blue; font-weight: bold;">$0.00</span></p>
+            <p style="margin: 5px 0;"><strong>जॉइनिंग तारीख:</strong> <span id="resDate">--</span></p>
+            <hr style="border: 0.5px solid #eee;">
+            <p style="font-size: 11px; color: #7f8c8d; text-align: center;">*सुरक्षा के लिए अपनी API चाबियाँ किसी को न दें।</p>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        // --- Google Apps Script Integration ---
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxDBLtnnQLGkjx6AEODiMt9kKIZySWQ_Lu_AQM8LnxPky7HZT880oiiG1Ve5NP2u87e/exec";
+        function fetchJoiningID() {
+            const script = document.createElement('script');
+            script.src = scriptURL;
+            document.body.appendChild(script);
+        }
+        window.addEventListener('load', fetchJoiningID);
+
+        // --- Firebase Configuration ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJLJ_FEaM4t16kPlri7cR93sb1UFmSMx0", 
+            authDomain: "dataown-production.firebaseapp.com",
+            projectId: "dataown-production",
+            storageBucket: "dataown-production.appspot.com",
+            messagingSenderId: "276566643288", 
+            appId: "1:276566643288:web:ad0a20703bd9cd8974b02d" 
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // --- Referral Handling ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const refBy = urlParams.get('ref');
+        if(refBy) {
+            document.getElementById('u_ref').value = refBy;
+            document.getElementById('refStatus').innerText = "🚩 इनवाइटेड बाय: " + refBy;
+        }
+
+        // --- Bot Functions ---
+        window.checkBalance = async () => {
+            const name = document.getElementById('u_name').value.trim();
+            if(name.length > 3) {
+                const docRef = db.collection("Users").doc(name);
+                docRef.get().then((docSnap) => {
+                    if (docSnap.exists) {
+                        const bal = docSnap.data().service_balance || 0;
+                        document.getElementById('userBalance').innerText = parseFloat(bal).toFixed(2);
+                        document.getElementById('balanceDisplay').style.display = "block";
+                    }
+                });
+            }
+        }
+
+        window.copyWallet = () => {
+            navigator.clipboard.writeText("TPCSLAVCopsLxx6uKFfPuh57v24cZuzV8b").then(() => alert("रिचार्ज एड्रेस (TRC20) कॉपी हो गया!"));
+        }
+
+        window.copyIP = () => {
+            navigator.clipboard.writeText("2001:16a4:9:bc62:f23b:a3e:e54c:94a9").then(() => alert("IP एड्रेस कॉपी हो गया! इसे बाइनेंस में पेस्ट करें।"));
+        }
+
+        window.generateRefLink = () => {
+            const name = document.getElementById('u_name').value.trim();
+            if(!name) { alert("रेफरल लिंक के लिए पहले नाम भरें!"); return; }
+            const myLink = window.location.origin + window.location.pathname + "?ref=" + encodeURIComponent(name);
+            navigator.clipboard.writeText(myLink).then(() => alert("आपका लिंक कॉपी हो गया:\n" + myLink));
+        }
+
+        window.saveToFirebase = async () => {
+            const name = document.getElementById('u_name').value.trim();
+            const key = document.getElementById('u_key').value.trim();
+            const secret = document.getElementById('u_secret').value.trim();
+            const referral = document.getElementById('u_ref').value.trim();
+            const msgEl = document.getElementById('msg');
+
+            if(!name || !key || !secret) { alert("राम भाई, पूरी जानकारी भरें!"); return; }
+
+            msgEl.innerText = "⏳ सिस्टम से जुड़ रहे हैं...";
+            msgEl.style.color = "orange";
+
+            try {
+                const docRef = db.collection("Users").doc(name);
+                const docSnap = await docRef.get();
+                
+                let currentBalance = 0.0;
+                let currentJoinDate = new Date().toISOString().split('T')[0];
+                let currentGasBalance = 0;
+
+                if(docSnap.exists){
+                    const data = docSnap.data();
+                    currentBalance = data.service_balance || 0.0;
+                    currentJoinDate = data.join_date || currentJoinDate;
+                    currentGasBalance = data.gas_balance || 0;
+                }
+
+                await docRef.set({
+                    name: name,
+                    api_key: key,
+                    secret: secret,
+                    referred_by: referral || "Direct",
+                    status: "Active", 
+                    service_balance: currentBalance,
+                    gas_balance: currentGasBalance,
+                    join_date: currentJoinDate,
+                    last_update: new Date().toISOString(),
+                    trusted_ip: "2001:16a4:9:bc62:f23b:a3e:e54c:94a9"
+                });
+
+                msgEl.innerText = "✅ बॉट सफलतापूर्वक चालू हो गया है!";
+                msgEl.style.color = "green";
+                checkBalance();
+            } catch (e) {
+                msgEl.innerText = "❌ एरर: इंटरनेट चेक करें।";
+                msgEl.style.color = "red";
+            }
+        }
+
+        // --- Status Checker Function (अब पूरी तरह जुड़ा हुआ है) ---
+        window.checkMyStatus = function() {
+            const nameInput = document.getElementById('checkName').value.trim();
+            const resultDiv = document.getElementById('statusResult');
+            
+            if(!nameInput) { alert("कृपया अपना नाम लिखें!"); return; }
+
+            db.collection("Users").doc(nameInput).get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+                    resultDiv.style.display = 'block';
+                    document.getElementById('resStatus').innerText = data.status || "Active";
+                    document.getElementById('resGas').innerText = "$" + (data.gas_balance || 0).toFixed(2);
+                    
+                    // लाइव मुनाफा डिस्प्ले
+                    if(document.getElementById('resTodayProfit')) {
+                        document.getElementById('resTodayProfit').innerText = "$" + (data.today_profit || 0).toFixed(2);
+                    }
+                    document.getElementById('resProfit').innerText = "$" + (data.total_profit || 0).toFixed(2);
+                    
+                    document.getElementById('resDate').innerText = data.join_date || "N/A";
+                } else {
+                    alert("इस नाम का कोई यूजर नहीं मिला। (ध्यान दें: नाम वही लिखें जो रजिस्ट्रेशन में दिया था)");
+                }
+            }).catch((e) => { 
+                console.error(e); 
+                alert("सर्वर एरर!"); 
+            });
+        }
+    </script>
+</body>
+</html>
 
