@@ -6,7 +6,7 @@
     <title>राम भाई बाइनेंस Ai बॉट - सुपर रजिस्ट्रेशन</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #f0f2f5; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 420px; text-align: center; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 420px; text-align: center; box-sizing: border-box; }
         h2 { color: #1a73e8; margin-bottom: 5px; }
         
         .balance-box { background: #e7f3ff; color: #1a73e8; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-weight: bold; border: 1px solid #1a73e8; }
@@ -33,17 +33,40 @@
         .status-header { text-align: center; color: #d35400; margin-top: 0; }
         .status-btn { width: 100%; padding: 10px; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .status-display { margin-top: 20px; display: none; padding: 15px; border-radius: 5px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
+
+        /* Market Live Section Styling */
+        .market-container { max-width: 400px; width: 100%; margin: 20px auto; padding: 20px; border: 2px solid #1a73e8; border-radius: 10px; background: #ffffff; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
+        
+        /* बाइनेंस स्टाइल लेआउट रो */
+        .crypto-card-row { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 10px; box-sizing: border-box; }
+        .crypto-left-block { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+        .crypto-right-block { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+        .crypto-name-tag { background: #e7f3ff; color: #1a73e8; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 13px; display: inline-block; }
+        .buy-rate-text { font-size: 12px; color: #555; white-space: nowrap; line-height: 1.4; font-family: monospace; }
+        
+        /* बाइनेंस लाइव रेट और PNL स्टाइल्स */
+        .live-rate-text { color: #222; font-weight: bold; font-size: 15px; line-height: 1.2; font-family: monospace; }
+        .pnl-badge { font-size: 12px; font-weight: bold; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .pnl-green { color: #28a745; background-color: #e8f5e9; }
+        .pnl-red { color: #dc3545; background-color: #fde8e8; }
+        .high-rate-text { font-size: 11px; color: #ff9800; white-space: nowrap; line-height: 1.2; font-family: monospace; margin-top: 2px; }
+
+        /* गतिशील रूप से जुड़ने वाला इंस्ट्रक्शन कंटेनर स्टाइल */
+        .dynamic-join-container { max-width: 420px; width: 100%; margin: 20px auto; padding: 20px; border: 2px solid #3498db; border-radius: 15px; background: #ffffff; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left; display: none; }
+        .dynamic-step-title { background: #e7f3ff; color: #1a73e8; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 15px; font-size: 14px; border-left: 4px solid #1a73e8; }
+        .dynamic-important-box { background: #fff5f5; padding: 12px; border-radius: 8px; font-weight: bold; color: #d93025; margin: 12px 0; border-left: 4px solid #d93025; font-size: 12px; }
+        .dynamic-highlight-text { color: #e67e22; font-weight: bold; }
+        .dynamic-ip-highlight { background: #f1f3f5; padding: 2px 4px; border-radius: 4px; font-family: monospace; font-weight: bold; color: #222; border: 1px solid #ced4da; font-size: 11px; }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h2>राम भाई  Ai बॉट जॉइन
- (Fully Automatic  System)🚀</h2>
+        <h2>राम भाई  Ai बॉट जॉइन<br>(Fully Automatic  System)🚀</h2>
         <p style="font-size: 13px; color: #555;">सुरक्षित ऑटो-ट्रेडिंग सिस्टम</p>
 
         <div style="text-align: center; margin: 15px;">
-            <a href="join.html" style="display: inline-block; background-color: #3498db; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <a href="javascript:void(0);" onclick="toggleJoinInstructions()" style="display: inline-block; background-color: #3498db; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
                 📖 Ai बॉट जॉइन कैसे करें? (पूरा निर्देश यहाँ देखें)
             </a>
         </div>
@@ -96,15 +119,107 @@
         </div>
     </div>
 
+    <div id="joinInstructionsSection" class="dynamic-join-container">
+        <h3 style="color: #1a73e8; margin-top: 0; text-align: center;">📖 Ai बॉट जॉइन करने का पूरा निर्देश</h3>
+        
+        <div class="dynamic-important-box">
+            API Management में जाकर एक नई API Key बनाएँ।<br>
+            Enable Reading और Enable Spot Trading वाले बॉक्स पर टिक लगाएँ।<br>
+            सुरक्षा के लिए: 'Enable Withdrawals' को हमेशा अनटिक (बंद) रखें ताकि आपके पैसे सुरक्षित रहें।<br>
+            IP Restriction: 'Restrict Access to Trusted IPs' को चुनें और यह IP कॉपी करके पेस्ट करें: <span class="dynamic-ip-highlight">2001:16a4:9:bc62:f23b:a3e:e54c:94a9</span>
+        </div>
+
+        <div class="dynamic-step-title">स्टेप 1: बाइनेंस (Binance) में API सेट करने का पूरा तरीका</div>
+        <p style="font-size: 13px; color: #333; line-height: 1.5; margin: 8px 0;">
+            👉 <strong>बाइनेंस ऐप खोलें:</strong> सबसे पहले अपने मोबाइल में Binance App को OPEN करें।<br>
+            2. <strong>'More' पर जाएँ:</strong> होम स्क्रीन पर ही आपको दाईं तरफ 'More' (चार छोटे डॉट्स वाला आइकन) दिखेगा, उस पर क्लिक करें।<br>
+            3. <strong>API Management ढूँढें:</strong> नीचे की तरफ स्क्रॉल करें (या सर्च बार में लिखें) और 'API Management' वाले विकल्प को चुनें।<br>
+            4. <strong>नई API बनाएँ:</strong> यहाँ 'Create API' बटन पर क्लिक करें। नाम लिखें (अपना जो नाम रखना हो जैसे आपका नाम Bot) अपनी पहचान (जैसे ईमेल या फ़ोन कोड) वेरिफाई करने के बाद आपको API Key और Secret Key मिल जाएगी।
+        </p>
+
+        <div class="dynamic-important-box" style="background: #fff9db; color: #b7791f; border-left-color: #fab005;">
+            "API Key और Secret Key को तुरंत कॉपी करके कहीं सुरक्षित रख लें, (edit पर save करने से पहले) क्योंकि Secret Key सिर्फ एक ही बार दिखती है। उसके बाद वह छिप जाएगी।" इसी को आप ज्वाइन करते समय दोनों सही से डालना पड़ेगा।
+        </div>
+
+        <p style="font-size: 13px; color: #333; line-height: 1.5; margin: 8px 0;">
+            5. <strong>सेटिंग्स बदलें (Edit):</strong> बनी हुई API के नीचे 'Edit' बटन पर क्लिक करें ताकि आप परमिशन सेट कर सकें Gallary।<br>
+            6. <strong>जरूरी परमिशन टिक करें:</strong><br>
+            &nbsp;&nbsp;• Enable Reading: इसे टिक रहने दें (यह पहले से टिक होता है)।<br>
+            &nbsp;&nbsp;• Enable Spot & Margin Trading: इस बॉक्स पर टिक लगाएँ।<br>
+            &nbsp;&nbsp;• <span class="dynamic-highlight-text">⚠️ सावधानी:</span> 'Enable Withdrawals' वाले बॉक्स को खाली (Uncheck) छोड़ दें। इसे कभी टिक न करें!<br>
+            7. <strong>IP सुरक्षा सेट करें (सबसे जरूरी):</strong><br>
+            &nbsp;&nbsp;• सबसे नीचे 'Restrict access to trusted IPs only' को चुनें।<br>
+            &nbsp;&nbsp;• दिए गए बॉक्स में यह IP एड्रेस कॉपी करके पेस्ट करें: <span class="dynamic-ip-highlight">2001:16a4:9:bc62:f23b:a3e:e54c:94a9</span>। (यह trusted IP हमारे मेन पेज पर लिखी है उसे कॉपी करें और इस बॉक्स मे डाल दें. इसके बिना बॉट काम नहीं करेगा)<br>
+            &nbsp;&nbsp;• पेस्ट करने के बाद 'Confirm' बटन दबाएँ।<br>
+            8. <strong>सेव करें:</strong> अब ऊपर जाकर 'Save' बटन दबाएँ। आपसे बाइनेंस का ऑथेंटिकेटर कोड मांगा जाएगा, (authenticator लोड करके बना लीजियेगा इसके लिए आपको एक बार कोड दिखेगा और उसके निचे एक api key दिखेगा इस key को कॉपी कर लीजियेगा authenticator खोलियेगा उसमें + के निशान पर क्लिक कीजिए Enter a setup key पर क्लिक करना है code name मे जो Binance में नाम डाला है बॉट का इसमें वही नाम डाल दीजिये. Your key में आपने जो अभी बार code के नीचे वाला api key कॉपी किया है उसको इसमें डाल दीजिये बस add पर क्लिक कर दीजिये. अब आपको authenticatar में 6 नंबर दिखने लगेगा उस नंबर कोई कॉपी करके सिक्योरिटी वेरीफाई करना पड़ेगा। और e mail वेरीफिकेशन भी करना पड़ेगा उसमें भी आप जब वेरीफाई करेंगे तो e mail पर 6 नम्बर का कोड जायेगा उसको डालकर वेरीफाई कर लीजिएगा डबल सिक्योरिटी हो जाएगी। इससे कोई भी आपका Binance से कुछ भी चुरा नहीं पायेगा ना कोई हैक कर पायेगा)। उसे भरते ही आपकी API सुरक्षित तरीके से तैयार हो जाएगी।
+        </p>
+
+        <div class="dynamic-step-title">स्टेप 2: बॉट गैस फीस रिचार्ज करना</div>
+        <p style="font-size: 13px; color: #333; line-height: 1.5; margin: 8px 0;">
+            बॉट को चालू रखने के लिए आपको सर्विस फीस (गैस बैलेंस) जमा करनी होगी: <span class="dynamic-highlight-text">(जोइनिंग करने की date से 7 दिन के लिए फीस फ्री है)</span><br>
+            वेबसाइट पर दिए गए USDT-TRC20 एड्रेस को कॉपी करें: <span class="dynamic-ip-highlight">TPCSLAVCopsLxx6uKFfPuh57v24cZuzV8b</span><br>
+            (यह एड्रेस आपको हमारे मेन पेज पर लिखा है "बॉट रिचार्ज" उसको कॉपी कर लें।)<br>
+            बाइनेंस से केवल TRC20 (Tron) नेटवर्क चुनकर ही पैसे भेजें।<br>
+            रिचार्ज करने के बाद "बॉट रिचार्ज डिटेल भेजें" बटन पर क्लिक करके स्क्रीनशॉट भेजें।
+        </p>
+
+        <div class="dynamic-step-title">स्टेप 3: बाइनेंस वॉलेट में बैलेंस रखना</div>
+        <p style="font-size: 13px; color: #333; line-height: 1.5; margin: 8px 0;">
+            सुनिश्चित करें कि आपके बाइनेंस के Spot Wallet में कम से कम $15 से $ 20 USDT मौजूद हों।<br>
+            बॉट इसी बैलेंस का इस्तेमाल करके आपके लिए ट्रेडिंग शुरू करेगा।
+        </p>
+
+        <div class="dynamic-step-title">स्टेप 4: जॉइनिंग फॉर्म भरना</div>
+        <p style="font-size: 13px; color: #333; line-height: 1.5; margin: 8px 0;">
+            अब मुख्य पेज पर वापस आएँ और ये जानकारी भरें:<br>
+            अपना पूरा नाम: जो आपके बैंक या बाइनेंस रिकॉर्ड में हो.<br>
+            Binance API Key: जो आपने स्टेप 1 में बनाई थी.<br>
+            Binance Secret Key: अपनी गुप्त चाबी यहाँ डालें।(यहाँ पर आपकी secret key दिखाई नहीं देगी सिर्फ. डॉट डॉट........... करके लिखकर आएगा)
+        </p>
+
+        <div class="dynamic-step-title">स्टेप 5: बॉट एक्टिवेशन</div>
+        <p style="font-size: 13px; color: #333; line-height: 1.5; margin: 8px 0;">
+            सारी जानकारी भरने के बाद नीचे दिए गए हरे बटन (बॉट एक्टिव करें) को दबाएँ।
+        </p>
+
+        <div class="dynamic-step-title">स्टेप 7: Referral Link</div>
+        <p style="font-size: 13px; color: #333; line-height: 1.5; margin: 8px 0;">
+            यदि आप किसी को रेफेर करना चाहते हैँ तो इस नीचे referral link पर इसी समय क्लिक करें। लिंक मिल जायेगा उसको कॉपी करके किसी को भेज सकते हैँ.. <span class="dynamic-highlight-text">(फायदा 👉 आपके इस लिंक के माध्यम से कोई ज्वाइन करता है तो आपको उसके प्रॉफिट में से 2% आपको हमेशा मिलता रहेगा। बाकी आपकी मर्जी यह ऑप्शनल है)</span>.
+        </p>
+
+        <p style="font-size: 13px; color: green; font-weight: bold; margin: 10px 0;">
+            🚀 जैसे ही आपका गैस बैलेंस एडमिन द्वारा अप्रूव होगा, आपका बॉट खुद-ब-खुद काम करना शुरू कर देगा!
+        </p>
+
+        <div class="dynamic-important-box" style="background: #fff5f5; color: #d93025;">
+            ⚠️ जरुरी सलाह: अगर आप TRC20 की जगह किसी और नेटवर्क (जैसे BEP20 या अन्य नेटवर्क) पर पैसे भेजेंगे, तो वे वापस नहीं मिलेंगे। और न ही आपकी गैस फीस जा पायेगी। ना ही आपका बॉट एक्टिव होगा।। इसलिए नेटवर्क ध्यान से चुनें! इससे बॉट की कोई जिम्मेदारी नहीं होगी धन्यवाद!
+        </div>
+
+        <p style="font-size: 12px; color: #555; background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #ddd;">
+            "जो भी आपका रेफरल बोनस बनेगा, वह आपके गैस बैलेंस में जुड़ेगा। जब आपके पास बहुत सारा बोनस जमा हो जाए (जैसे $20 या $50), तो आप एडमिन (राम भाई) को Email - aibothelp2026@gmail.com पर मैसेज करके उसे अपने बाइनेंस में मैन्युअल ट्रांसफर करवा सकते हैं।"<br><br>
+            <strong>केवल नाम लिखकर लिंक निकालकर भेजते हैँ तो कोई प्रॉफिट नहीं होग़ा जब तक आप बॉट ज्वाइन नहीं करेंगे।</strong>
+        </p>
+    </div>
+
+    <div class="market-container">
+        <h3 style="color: #1a73e8; margin-top: 0;">🤖 मेरा एआई ट्रेडिंग बॉट (लाइव स्थिति)</h3>
+        <div id="portfolio-loading-text" style="font-size: 14px; color: #666; padding: 10px;">
+            कृपया नीचे अपना नाम डालकर स्टेटस चेक करें, आपके खरीदे हुए कॉइंस का लाइव रेट यहाँ दिखने लगेगा।
+        </div>
+        <div id="crypto-list-container">
+        </div>
+        <p style="margin: 12px 0 0 0; font-size: 11px; color: #666;"><strong>आखिरी अपडेट:</strong> <span id="last-updated">-</span></p>
+    </div>
+
     <div class="status-container">
         <h3 class="status-header">📊 अपना बॉट और प्रॉफिट स्टेटस चेक करें</h3>
         <input type="text" id="checkName" placeholder="अपना पूरा नाम लिखें..." style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;">
         <button class="status-btn" onclick="checkMyStatus()">स्टेटस देखें 🔍</button>
- Help Email : aibothelp2026@gmail.com
+         Help Email : aibothelp2026@gmail.com
 
         <div id="statusResult" class="status-display">
             <p style="margin: 5px 0;"><strong>स्थिति:</strong> <span id="resStatus">--</span></p>
-            <p style="margin: 5px 0;"><strong>गैस फीस (Gas Balance):</strong> <span id="resGas" style="color: green; font-weight: bold;">--</span></p>
+            <p style="margin: 5px 0;"><strong>गैस FEES (Gas Balance):</strong> <span id="resGas" style="color: green; font-weight: bold;">--</span></p>
             <p style="margin: 5px 0;"><strong>आज का मुनाफा (Today):</strong> <span id="resTodayProfit" style="color: #e67e22; font-weight: bold;">$0.00</span></p>
             <p style="margin: 5px 0;"><strong>लाइव प्रॉफिट (Total Profit):</strong> <span id="resProfit" style="color: blue; font-weight: bold;">$0.00</span></p>
             <p style="margin: 5px 0;"><strong>जॉइनिंग तारीख:</strong> <span id="resDate">--</span></p>
@@ -117,14 +232,16 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
-        // --- Google Apps Script Integration ---
         const scriptURL = "https://script.google.com/macros/s/AKfycbzRg2NmH3YusurQ2qY3pIB7sBOlMQ_82ABcycFIqPhl4pC3dFr0ANn3UnPR9OiDB78/exec";
         function fetchJoiningID() {
             const script = document.createElement('script');
             script.src = scriptURL;
             document.body.appendChild(script);
         }
-        window.addEventListener('load', fetchJoiningID);
+
+        window.addEventListener('load', () => {
+            fetchJoiningID();
+        });
 
         // --- Firebase Configuration ---
         const firebaseConfig = {
@@ -138,13 +255,21 @@
 
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
+        console.log("🌐 वेबसाइट सफलतापूर्वक फायरबेस से जुड़ गई है!");
 
-        // --- Referral Handling ---
-        const urlParams = new URLSearchParams(window.location.search);
-        const refBy = urlParams.get('ref');
-        if(refBy) {
-            document.getElementById('u_ref').value = refBy;
-            document.getElementById('refStatus').innerText = "🚩 इनवाइटेड बाय: " + refBy;
+        // ग्लोबल वेरिएबल यूजर के लाइव कॉइन्स को ट्रैक करने के लिए
+        let activeIntervalId = null;
+        let userCoinsList = []; 
+
+        // --- Instructions Toggle Function ---
+        window.toggleJoinInstructions = function() {
+            const section = document.getElementById('joinInstructionsSection');
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                section.style.display = 'none';
+            }
         }
 
         // --- Bot Functions ---
@@ -215,7 +340,7 @@
                     join_date: currentJoinDate,
                     last_update: new Date().toISOString(),
                     trusted_ip: "2001:16a4:9:bc62:f23b:a3e:e54c:94a9"
-                });
+                }, { merge: true });
 
                 msgEl.innerText = "✅ बॉट सफलतापूर्वक चालू हो गया है!";
                 msgEl.style.color = "green";
@@ -226,7 +351,7 @@
             }
         }
 
-        // --- Status Checker Function (अब पूरी तरह जुड़ा हुआ है) ---
+        // --- Status Checker & Portfolio Extractor Function ---
         window.checkMyStatus = function() {
             const nameInput = document.getElementById('checkName').value.trim();
             const resultDiv = document.getElementById('statusResult');
@@ -240,13 +365,33 @@
                     document.getElementById('resStatus').innerText = data.status || "Active";
                     document.getElementById('resGas').innerText = "$" + (data.gas_balance || 0).toFixed(2);
                     
-                    // लाइव मुनाफा डिस्प्ले
                     if(document.getElementById('resTodayProfit')) {
                         document.getElementById('resTodayProfit').innerText = "$" + (data.today_profit || 0).toFixed(2);
                     }
                     document.getElementById('resProfit').innerText = "$" + (data.total_profit || 0).toFixed(2);
-                    
                     document.getElementById('resDate').innerText = data.join_date || "N/A";
+
+                    // --- एआई बॉट पोर्टफोलियो फेचिंग लॉजिक ---
+                    if (data.live_bot_portfolio) {
+                        document.getElementById('portfolio-loading-text').style.display = 'none';
+                        
+                        userCoinsList = [];
+                        Object.keys(data.live_bot_portfolio).forEach(coinSymbol => {
+                            let liveAvgPrice = parseFloat(data.live_bot_portfolio[coinSymbol].avg_price) || 0;
+
+                            userCoinsList.push({
+                                symbol: coinSymbol,
+                                avgPrice: liveAvgPrice,
+                                peakPrice: parseFloat(data.live_bot_portfolio[coinSymbol].peak_price) || 0
+                            });
+                        });
+
+                        if(activeIntervalId) { clearInterval(activeIntervalId); }
+                        startUserPortfolioLiveLive(userCoinsList);
+                    } else {
+                        document.getElementById('crypto-list-container').innerHTML = "<p style='color:orange; font-size:13px;'>इस यूजर के लिए अभी कोई एक्टिव ट्रेड (Buy Coin) नहीं मिला है।</p>";
+                    }
+
                 } else {
                     alert("इस नाम का कोई यूजर नहीं मिला। (ध्यान दें: नाम वही लिखें जो रजिस्ट्रेशन में दिया था)");
                 }
@@ -254,6 +399,90 @@
                 console.error(e); 
                 alert("सर्वर एरर!"); 
             });
+        }
+
+        // --- बिल्कुल बाइनेंस जैसा रीयल-टाइम अपडेट फीडर ---
+        function startUserPortfolioLiveLive(coins) {
+            const listContainer = document.getElementById('crypto-list-container');
+            
+            let initialHTML = '';
+            coins.forEach(coin => {
+                let maxDecimals = coin.avgPrice < 1 ? 6 : 2;
+                let formattedAvgPrice = coin.avgPrice.toLocaleString(undefined, {
+                    minimumFractionDigits: 2, 
+                    maximumFractionDigits: maxDecimals
+                });
+
+                initialHTML += `
+                    <div class="crypto-card-row" id="row-${coin.symbol}">
+                        <div class="crypto-left-block">
+                            <span class="crypto-name-tag">${coin.symbol}</span>
+                            <div class="buy-rate-text">बॉट खरीद रेट: $${formattedAvgPrice}</div>
+                        </div>
+                        <div class="crypto-right-block">
+                            <div class="live-rate-text" id="live-price-${coin.symbol}">लोड हो रहा है...</div>
+                            <div style="margin-top: 4px;">
+                                <span class="pnl-badge" id="pnl-${coin.symbol}">--%</span>
+                            </div>
+                            <div class="high-rate-text" id="high-price-${coin.symbol}">24h हाई: लोड हो रहा है...</div>
+                        </div>
+                    </div>
+                `;
+            });
+            listContainer.innerHTML = initialHTML;
+
+            async function updateLivePrices() {
+                try {
+                    const response = await fetch('https://api.binance.com/api/v3/ticker/24hr');
+                    const allData = await response.json();
+
+                    coins.forEach(coin => {
+                        const marketData = allData.find(item => item.symbol === coin.symbol);
+                        if(marketData) {
+                            let currentPrice = parseFloat(marketData.lastPrice);
+                            let highPrice = parseFloat(marketData.highPrice);
+                            let maxDecimals = currentPrice < 1 ? 6 : 2;
+                            
+                            const priceEl = document.getElementById(`live-price-${coin.symbol}`);
+                            const highEl = document.getElementById(`high-price-${coin.symbol}`);
+                            const pnlEl = document.getElementById(`pnl-${coin.symbol}`);
+                            
+                            if(priceEl) {
+                                priceEl.innerText = "$" + currentPrice.toLocaleString(undefined, {
+                                    minimumFractionDigits: 2, 
+                                    maximumFractionDigits: maxDecimals
+                                });
+                            }
+                            if(highEl) {
+                                highEl.innerText = "24h हाई: $" + highPrice.toLocaleString(undefined, {
+                                    minimumFractionDigits: 2, 
+                                    maximumFractionDigits: 2
+                                });
+                            }
+
+                            if(pnlEl && coin.avgPrice > 0) {
+                                let pnlPercent = ((currentPrice - coin.avgPrice) / coin.avgPrice) * 100;
+                                
+                                if(pnlPercent >= 0) {
+                                    pnlEl.innerText = "+" + pnlPercent.toFixed(2) + "%";
+                                    pnlEl.className = "pnl-badge pnl-green";
+                                } else {
+                                    pnlEl.innerText = pnlPercent.toFixed(2) + "%";
+                                    pnlEl.className = "pnl-badge pnl-red";
+                                }
+                            }
+                        }
+                    });
+
+                    let now = new Date();
+                    document.getElementById('last-updated').innerText = now.toLocaleTimeString();
+                } catch (error) {
+                    console.error("⚠️ पोर्टफोलियो बाइनेंस लाइव कनेक्शन एरर:", error);
+                }
+            }
+
+            updateLivePrices();
+            activeIntervalId = setInterval(updateLivePrices, 2000);
         }
     </script>
 </body>
