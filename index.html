@@ -57,6 +57,53 @@
         .dynamic-important-box { background: #fff5f5; padding: 12px; border-radius: 8px; font-weight: bold; color: #d93025; margin: 12px 0; border-left: 4px solid #d93025; font-size: 12px; }
         .dynamic-highlight-text { color: #e67e22; font-weight: bold; }
         .dynamic-ip-highlight { background: #f1f3f5; padding: 2px 4px; border-radius: 4px; font-family: monospace; font-weight: bold; color: #222; border: 1px solid #ced4da; font-size: 11px; }
+
+        /* 🚀 खूबियों के बटन और पैनल की स्टाइल (यहाँ जोड़ा गया है) */
+        .secrets-btn {
+            background: linear-gradient(135deg, #ff9900 0%, #ff5500 100%);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+            transition: all 0.3s ease;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 5px auto 20px auto;
+            width: 100%;
+            animation: btnPulse 2s infinite;
+        }
+        @keyframes btnPulse {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 102, 0, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 25px rgba(255, 102, 0, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 102, 0, 0.5); }
+        }
+        .features-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, opacity 0.5s ease-out;
+            opacity: 0;
+            text-align: left;
+            background: #161b22;
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .features-panel.show {
+            max-height: 3500px;
+            opacity: 1;
+            padding: 15px;
+            border: 1px solid #30363d;
+        }
+        .section-heading { font-size: 1.2rem; color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 5px; margin-top: 15px; font-weight: bold; }
+        .feature-item { border-left: 4px solid #ff5500; background: #21262d; padding: 12px; margin-bottom: 12px; border-radius: 0 8px 8px 0; font-size: 13px; line-height: 1.5; }
+        .feature-title { font-weight: bold; color: #ff9900; margin-bottom: 4px; display: block; }
     </style>
 </head>
 <body>
@@ -69,6 +116,61 @@
             <a href="javascript:void(0);" onclick="toggleJoinInstructions()" style="display: inline-block; background-color: #3498db; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
                 📖 Ai बॉट जॉइन कैसे करें? (पूरा निर्देश यहाँ देखें)
             </a>
+        </div>
+
+        <button class="secrets-btn" id="toggleBtn" onclick="toggleFeatures()">
+            <span>🔒 बोट के सीक्रेट अर्निंग रूल्स खोलें</span> 🗲
+        </button>
+
+        <div class="features-panel" id="featuresPanel">
+            <div class="section-heading">🌟 हमारा सिस्टम सबसे अलग और बेस्ट क्यों है?</div>
+            <p style="font-size:13px; color:#c9d1d9;">मार्केट में बहुत सारे साधारण बॉट्स हैं, लेकिन हमारा सिस्टम 'राम भाई के अटूट नियमों' और दुनिया की सबसे एडवांस्ड AI (Artificial Intelligence) की कोर ताकत पर चलता है.</p>
+            
+            <div class="feature-item">
+                <span class="feature-title">ज़ीरो नॉलेज की जरूरत:</span> आपको ट्रेडिंग का 'T' भी नहीं आता? कोई बात नहीं! हमारा सिस्टम पूरी तरह से ऑटोमैटिक है। यह खुद सही समय पर कॉइन खरीदता है और प्रॉफिट आते ही बेच देता है।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">डबल कन्फर्मेशन (AI + 5 शक्तिशाली इंडिकेटर्स):</span> हमारा सिस्टम किसी भी कॉइन को खरीदने से पहले 5 शक्तिशाली गणितीय इंडिकेटर्स का शुद्ध गणितीय विश्लेषण करता है। जब 5 में से कम से कम 4 इंडिकेटर हरी झंडी दिखाते हैं, तभी इस पर फाइनल मुहर लगता है।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">📈 स्मार्ट वर्टिकल कंपाउंडिंग इंजन (Vertical Compounding):</span> हमारा बोट साधारण फिक्स ट्रेडिंग नहीं करता। इसमें असली कम्पाउंडिंग का गणित फिट है। जैसे-जैसे आपका कुल पोर्टफोलियो और प्रॉफिट बढ़ता है, सिस्टम आपके बढ़े हुए फंड के हिसाब से आपके ट्रेडिंग स्लॉट का साइज (Slot Invest Amount) ऑटोमैटिक बढ़ा देता है! यानी मुनाफे से महा-मुनाफा बनाने का चक्रव्यूह। यह आपके छोटे निवेश को भी बहुत कम समय में बड़ी वेल्थ में बदल देता है।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">आपका पैसा, आपके पास सुरक्षित:</span> आपको अपना फंड हमें देने की बिल्कुल जरूरत नहीं है! आपका पैसा आपके खुद के Binance अकाउंट में 100% सुरक्षित रहता है। हमारा सिस्टम सिर्फ सुरक्षित आपके ही अकाउंट में पूरी सुरक्षा के साथ ट्रेडिंग करता है।
+            </div>
+
+            <div class="section-heading">🛡️ सुरक्षा और रिस्क मैनेजमेंट (राम भाई के कड़े और अटूट नियम)</div>
+            <p style="font-size:13px; color:#c9d1d9;">हमारे बॉट में इंसानी जज्बात (Emotion) या लालच नहीं है, बल्कि यह आपके फंड को सुरक्षित रखने के लिए इन कठोर नियमों पर काम करता है:</p>
+            
+            <div class="feature-item">
+                <span class="feature-title">स्मार्ट इन्वेस्टमेंट रेश्यो (70/30):</span> सिस्टम कभी भी आपका पूरा पैसा एक साथ इन्वेस्ट नहीं करता। यह आपके कुल फंड का केवल 70% हिस्से (INVESTMENT_RATIO) को ही एक्टिव ट्रेडिंग मार्केट में इस्तेमाल करता है, जबकि 30% फंड हमेशा बैकअप और इमरजेंसी के लिए सुरक्षित रखता है।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">स्टॉप-लॉस (सटीक प्रॉफिट लॉक):</span> जैसे ही आपका trade मुनाफे पर पहुंचता है, बोट का इंजन एक्टिव हो जाता है। अगर मार्केट और ऊपर जाता है, तो यह प्रॉफिट बढ़ाता रहता है, और जैसे ही मार्केट अपने टॉप पीक से नीचे आता है, बोट तुरंत आपका प्रॉफिट बुक करके कैश (USDT) सेफ कर लेता है।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">फ़ास्ट प्रॉफिट और डीप बाय (डिप नियम):</span> अगर कोई टॉप कॉइन अपने 24 घंटे के हाई से नीचे गिरता है, तो हमारा AI स्कैनर तुरंत एक्टिव हो जाता है ताकि आपको सबसे सस्ते दाम पर बाइंग मिल सके।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">एवरेजिंग系统 (दोबारा बाय):</span> अगर मार्केट अचानक आपकी पहली बाइंग से नीचे गिरता है, तो सिस्टम घबराता नहीं है। यह कम रेट पर दोबारा खरीदारी (Averaging) करके आपके पूरे ट्रेड का औसत रेट घटा देता है ताकि接收 मार्केट थोड़ा सा उठते ही आप भारी मुनाफे में बाहर आ सकें।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">कड़ा होल्ड प्रोटोकॉल:</span> एवरेजिंग के तुरंत बाद बोट कड़ा होल्ड (HARD_HOLD) लगा देता है, जिससे आपका फंड बिना वजह मार्केट के उतार-चढ़ाव में नहीं फंसता।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">इमरजेंसी क्रैश प्रोटेक्शन:</span> अगर पूरी क्रिप्टो मार्केट में कोई अचानक बहुत बड़ा क्रैश आता है और गिरावट लगातार आती है, तो बोट का इमरजेंसी लिक्विडेशन प्रोटोकॉल एक्टिव ডান हो जाता है, जो आपके बचे हुए फंड को मार्केट डूबने से पहले तुरंत बचाकर सुरक्षित कर लेता है।
+            </div>
+
+            <div class="section-heading">💰 पारदर्शी विन-विन बिज़नेस मॉडल (Win-Win)</div>
+            <div class="feature-item">
+                <span class="feature-title">सिर्फ प्रॉफिट पर फीस:</span> हम आपसे कोई भारी-भरकम मंथली या सालाना फीस नहीं लेते। जब हमारा सिस्टम आपको लाइव प्रॉफिट कमा कर देगा, उस शुद्ध प्रॉफिट का केवल 10% सर्विस फीस के तौर पर लिया जाएगा। अगर आपका ट्रेड प्रॉफिट में नहीं है, तो आपकी कोई फीस नहीं कटेगी।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">2% लाइफटाइम रेफरल इनकम:</span> अगर आप हमारे इस शानदार सिस्टम के बारे में अपने दोस्तों को बताते हैं और वो ज्वाइन करते हैं, तो उनके होने वाले हर प्रॉफिट पर आपको 2% का लाइफटाइम रेफरल बोनस सीधे आपके वॉलेट में मिलेगा! बिना खुद ट्रेडिंग किये भी आप दूसरों के जरिए शानदार पैसिव इनकम कमा सकते हैं।
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">कड़ा गैस बैलेंस नियम ($0.50):</span> बोट के लगातार काम करते रहने और फीस-बोनस के सही डिस्ट्रीब्यूशन के लिए आपके सिस्टम वॉलेट में हमेशा कम से कम $0.50 का न्यूनतम गैस बैलेंस होना अनिवार्य है, जो बोट को बिना रुके 24/7 चालू रखता है।
+            </div>
         </div>
 
         <div id="balanceDisplay" class="balance-box" style="display:none;">
@@ -483,6 +585,22 @@
 
             updateLivePrices();
             activeIntervalId = setInterval(updateLivePrices, 2000);
+        }
+
+        // --- नया फंक्शन जो खूबियों को खोलेगा और बंद करेगा (यहाँ जोड़ा गया है) ---
+        function toggleFeatures() {
+            const panel = document.getElementById('featuresPanel');
+            const btn = document.getElementById('toggleBtn');
+            if (panel.classList.contains('show')) {
+                panel.classList.remove('show');
+                btn.innerHTML = '<span>🔒 बोट के सीक्रेट अर्निंग रूल्स खोलें</span> 🗲';
+                btn.style.background = 'linear-gradient(135deg, #ff9900 0%, #ff5500 100%)';
+            } else {
+                panel.classList.add('show');
+                btn.innerHTML = '<span>🔓 सीक्रेट रूल्स छुपाएं</span> ✖';
+                btn.style.background = 'linear-gradient(135deg, #238636 0%, #2ea043 100%)';
+                setTimeout(() => { panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 150);
+            }
         }
     </script>
 </body>
